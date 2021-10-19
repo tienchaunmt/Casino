@@ -8,10 +8,17 @@ using namespace std;
 int main() {
   _setmode(_fileno(stdin), _O_U16TEXT);
   _setmode(_fileno(stdout), _O_U16TEXT);
+
   system("cls");
+
   wstring playerName;
   wcout << L"Nhập tên của bạn: ";
   getline(wcin, playerName);
+
+  int amount;
+  wcout << L"Số tiền (VND) bạn đăng ký sở hữu trong trò chơi: ";
+  wcin >> amount;
+
   system("pause");
   return 0;
 }
