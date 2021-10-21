@@ -33,6 +33,15 @@ int main() {
     rules();
     wcout << L"Số tiền (VND) hiện tại có trong tài khoản của bạn là: " << amount << endl;
 
+    int bettingAmount;
+    do {
+      wcout << playerName << L", đặt cược số tiền (VND) khi bắt đầu ván game: ";
+      wcin >> bettingAmount;
+      if (bettingAmount > amount)
+        wcout << L"Số tiền đặt cược của bạn lớn hơn số dư tài khoản mà bạn đang sở hữu\n"
+              << L"\nBạn vui lòng đặt lại số tiền đặt cược\n";
+    } while (bettingAmount > amount);
+
     if (amount == 0) {
       wcout << L"Số tiền trong tài khoản của bạn đã hết!\n Xin nạp tiền để tiếp tục đặt cược" << endl;
       break;
