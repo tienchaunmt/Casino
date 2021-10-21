@@ -31,7 +31,12 @@ int main() {
   do {
     system("cls");
     rules();
+    wcout << L"Số tiền (VND) hiện tại có trong tài khoản của bạn là: " << amount << endl;
 
+    if (amount == 0) {
+      wcout << L"Số tiền trong tài khoản của bạn đã hết!\n Xin nạp tiền để tiếp tục đặt cược" << endl;
+      break;
+    }
     wcout << L"\n\n--> Bạn có muốn chơi tiếp không?\n Chọn (y) để tiếp tục, chọn (n) để kết thúc game? ";		
     wcin >> choice;
   } while (choice == 'Y' || choice == 'y');
