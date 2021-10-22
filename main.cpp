@@ -51,8 +51,20 @@ int main() {
               << L"Bạn vui lòng chọn lại số dự đoán của bạn\n";
     } while (guess <= 0 || guess > 5);
 
+    int dice = rand()%5 + 1;
+    if(dice == guess) {
+      wcout << L"\nQuá tuyệt!! Bạn đã đoán chính xác con số may mắn.\n Bạn được nhận " << bettingAmount * 10 << L" VND.";
+      amount += bettingAmount * 10;
+    } else {
+      wcout << L"Chúc bạn may mắn lần sau!! Bạn đã cược thua với số tiền "<< bettingAmount << L" VND.";
+      amount -= bettingAmount;
+    }
+
+    wcout << L"\nCon số chiến thắng của lượt chơi này là : " << dice << L"\n";
+    wcout << L"\n" << playerName << L", Số tiền hiện tại của bạn là : " << amount << L"\n";
+
     if (amount == 0) {
-      wcout << L"Số tiền trong tài khoản của bạn đã hết!\n Xin nạp tiền để tiếp tục đặt cược" << endl;
+      wcout << L"Số tiền trong tài khoản của bạn đã hết!\nXin người chơi nạp tiền để tiếp tục đặt cược." << endl;
       break;
     }
     wcout << L"\n\n--> Bạn có muốn chơi tiếp không?\n Chọn (y) để tiếp tục, chọn (n) để kết thúc game? ";		
