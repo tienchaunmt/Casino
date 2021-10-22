@@ -14,9 +14,9 @@ int main() {
 
   system("cls");
 
-  drawLine(80,'_');
-  wcout << "\n\n\n\t\t\t\tCASINO GAME\n\n\n";
-  drawLine(80,'_');
+  drawLine(80,'%');
+  wcout << "\n\n\n\t\t\t\tCASINO GAME\n\n\n\n";
+  drawLine(80,'%');
 
   wstring playerName;
   wcout << L"Nhập tên của bạn: ";
@@ -39,8 +39,17 @@ int main() {
       wcin >> bettingAmount;
       if (bettingAmount > amount)
         wcout << L"Số tiền đặt cược của bạn lớn hơn số dư tài khoản mà bạn đang sở hữu\n"
-              << L"\nBạn vui lòng đặt lại số tiền đặt cược\n";
+              << L"Bạn vui lòng đặt lại số tiền đặt cược\n";
     } while (bettingAmount > amount);
+
+    int guess;
+    do {
+      wcout << L"Số bạn dự đoán từ 1 đến 5 : ";
+      wcin >> guess;
+      if (guess <= 0 || guess > 5)
+        wcout << L"Số của bạn nằm ngoài số cho phép của trò chơi! Số của bạn nên nằm trong khoảng từ 1 đến 5\n"
+              << L"Bạn vui lòng chọn lại số dự đoán của bạn\n";
+    } while (guess <= 0 || guess > 5);
 
     if (amount == 0) {
       wcout << L"Số tiền trong tài khoản của bạn đã hết!\n Xin nạp tiền để tiếp tục đặt cược" << endl;
@@ -63,11 +72,11 @@ void drawLine(int n, char symbol) {
 
 void rules() {
   wcout << L"\n\n";
-  drawLine(80,'-');
-  wcout << L"\t\t\t\tQuy tắc trò chơi\n";
-  drawLine(80,'-');
-  wcout << L"\t1. Lựa chọn 1 số bất kì từ 1 đến 5\n";
+  drawLine(80,'&');
+  wcout << L"\n\t\t\t\tQuy tắc trò chơi\n\n";
+  drawLine(80,'&');
+  wcout << L"\n\t1. Lựa chọn 1 số bất kì từ 1 đến 5\n";
   wcout << L"\t2. Nếu bạn đoán đúng thì sẽ nhận lại được gấp 10 lần số tiền đặt cược\n";
   wcout << L"\t3. Nếu bạn đoán sai thì sẽ bị mất hết số tiền đặt cược trước đó\n\n";
-  drawLine(80,'-');
+  drawLine(80,'&');
 }
